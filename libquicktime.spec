@@ -5,7 +5,7 @@ Release:	22%{?dist}
 License:	LGPLv2+
 Group: 		System Environment/Libraries
 URL: 		http://libquicktime.sf.net
-Source: 	%{name}-%{version}.tar.xz
+Source0:	https://transfer.sh/i60Cp/libquicktime-1.2.4.tar.xz
 Source1:        COPYING
 Source2:        baselibs.conf
 Source3:	libquicktime-snapshot.sh
@@ -26,6 +26,7 @@ BuildRequires:	libavc1394-devel libraw1394-devel >= 0.9.0-12
 BuildRequires:	gtk2-devel >= 2.4.0
 BuildRequires:  schroedinger-devel
 BuildRequires:  gettext-devel
+BuildRequires:	cvs
 %{?_with_faac:BuildRequires: faac-devel}
 
 %package utils
@@ -141,7 +142,6 @@ find $RPM_BUILD_ROOT%{_libdir} -type f -a -name \*.la -exec rm {} \;
 %changelog
 * Sun Jun 26 2016 The UnitedRPMs Project (Key for UnitedRPMs infrastructure) <unitedrpms@protonmail.com> - 1.2.4-22
 - Rebuild with new ffmpeg
-
 
 * Fri Apr 22 2016 David Vásquez <davidjeremias82 AT gmail DOT com> - 1.2.4-21
 - Rebuilt for ffmpeg 3.0.1
