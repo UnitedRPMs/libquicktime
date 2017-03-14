@@ -65,7 +65,7 @@ enhancements. This package contains development files for %{name}.
 # --------------------------------------------------------------------
 
 %prep
-%autosetup -n %{name}
+%autosetup -n %{name}-%{version}
 
 %patch0 -p1
 %patch1 -p1
