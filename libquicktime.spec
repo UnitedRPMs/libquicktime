@@ -5,7 +5,7 @@ Release:	22%{?dist}
 License:	LGPLv2+
 Group: 		System Environment/Libraries
 URL: 		http://libquicktime.sf.net
-Source0:	https://transfer.sh/i60Cp/libquicktime-1.2.4.tar.xz
+Source0:	https://sourceforge.net/projects/%{name}/files/%{name}/%{version}/%{name}-%{version}.tar.gz
 Source1:        COPYING
 Source2:        baselibs.conf
 Source3:	libquicktime-snapshot.sh
@@ -65,7 +65,7 @@ enhancements. This package contains development files for %{name}.
 # --------------------------------------------------------------------
 
 %prep
-%setup -n %{name}
+%autosetup -n %{name}
 
 %patch0 -p1
 %patch1 -p1
