@@ -67,8 +67,8 @@ enhancements. This package contains development files for %{name}.
 %prep
 %autosetup -n %{name}
 
-%patch0 -p1
-%patch1 -p1
+#%patch0 -p1
+#%patch1 -p1
 
 sed -i 's/-DGTK_DISABLE_DEPRECATED//g' configure.ac
 
