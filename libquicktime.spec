@@ -5,12 +5,12 @@ Release:	24%{?dist}
 License:	LGPLv2+
 Group: 		System Environment/Libraries
 URL: 		http://libquicktime.sf.net
-Source0:	https://transfer.sh/A9mhs/libquicktime-1.2.4.tar.xz
+Source0:	https://github.com/UnitedRPMs/libquicktime/releases/download/1.2.4/libquicktime-1.2.4.tar.xz
 Source1:        COPYING
 Source2:        baselibs.conf
 Source3:	libquicktime-snapshot.sh
-#Patch0:         libquicktime-ffmpeg3.patch
-#Patch1:         libquicktime-faad2.patch
+#Patch0:        libquicktime-ffmpeg3.patch
+#Patch1:        libquicktime-faad2.patch
 
 BuildRequires:  autoconf
 BuildRequires:  automake
