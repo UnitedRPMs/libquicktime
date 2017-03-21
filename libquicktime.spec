@@ -5,12 +5,13 @@ Release:	24%{?dist}
 License:	LGPLv2+
 Group: 		System Environment/Libraries
 URL: 		http://libquicktime.sf.net
-Source0:	https://github.com/UnitedRPMs/libquicktime/releases/download/1.2.4/libquicktime-1.2.4.tar.xz
+Source0:	http://downloads.sourceforge.net/sourceforge/libquicktime/libquicktime-%{version}.tar.gz
 Source1:        COPYING
 Source2:        baselibs.conf
 Source3:	libquicktime-snapshot.sh
-#Patch0:        libquicktime-ffmpeg3.patch
-#Patch1:        libquicktime-faad2.patch
+Patch0:         libquicktime-backport.patch
+Patch1:         libav10.patch
+Patch2:         ffmpeg_2.9.patch
 
 BuildRequires:  autoconf
 BuildRequires:  automake
@@ -65,10 +66,7 @@ enhancements. This package contains development files for %{name}.
 # --------------------------------------------------------------------
 
 %prep
-%autosetup -n %{name}
-
-#%patch0 -p1
-#%patch1 -p1
+%autosetup -n %{name}-%{version} -p1
 
 sed -i 's/-DGTK_DISABLE_DEPRECATED//g' configure.ac
 
@@ -89,7 +87,7 @@ echo 'HTML_TIMESTAMP=NO' >> doc/Doxyfile.in
 	--without-doxygen \
 	--disable-static \
 	--with-libdv \
-	--enable-libswscale
+	--enable-libswscale 
 
 # remove rpath from libtool
 sed -i.rpath 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool

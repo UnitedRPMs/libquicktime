@@ -1,0 +1,7 @@
+BUILD/*
+BUILDROOT/*
+RPMS/*
+SPECS/*
+SRPMS/*
+libquicktime*.tar.gz
+libquicktime*.tar.xz
