@@ -1,7 +1,7 @@
 Summary: 	Library for reading and writing Quicktime files
 Name: 		libquicktime
 Version:	1.2.4
-Release:	25%{?dist}
+Release:	26%{?dist}
 License:	LGPLv2+
 Group: 		System Environment/Libraries
 URL: 		http://libquicktime.sf.net
@@ -138,6 +138,9 @@ find $RPM_BUILD_ROOT%{_libdir} -type f -a -name \*.la -exec rm {} \;
 # --------------------------------------------------------------------
 
 %changelog
+
+* Mon Jul 31 2017 Unitedrpms Project <unitedrpms AT protonmail DOT com> 1.2.4-26  
+- Automatic Mass Rebuild
 
 * Wed Apr 19 2017 Unitedrpms Project <unitedrpms AT protonmail DOT com> 1.2.4-25  
 - Automatic Mass Rebuild
