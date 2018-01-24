@@ -1,17 +1,17 @@
+# See current commit here https://sourceforge.net/p/libquicktime/git/ci/master/tree/
+%global commit0 4d451774b89fbdd2f53204f92b71837af7b06761
+%global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
+%global gver .git%{shortcommit0}
+
 Summary: 	Library for reading and writing Quicktime files
 Name: 		libquicktime
 Version:	1.2.4
-Release:	28%{?dist}
+Release:	29%{?gver}%{?dist}
 License:	LGPLv2+
 Group: 		System Environment/Libraries
 URL: 		http://libquicktime.sf.net
-Source0:	http://downloads.sourceforge.net/sourceforge/libquicktime/libquicktime-%{version}.tar.gz
+Source0:	https://sourceforge.net/code-snapshots/git/l/li/libquicktime/git.git/libquicktime-git-%{commit0}.zip#/%{name}-%{shortcommit0}.tar.gz
 Source1:        COPYING
-Source2:        baselibs.conf
-Source3:	libquicktime-snapshot.sh
-Patch0:         libquicktime-backport.patch
-Patch1:         libav10.patch
-Patch2:         ffmpeg_2.9.patch
 
 BuildRequires:  autoconf
 BuildRequires:  automake
@@ -66,7 +66,7 @@ enhancements. This package contains development files for %{name}.
 # --------------------------------------------------------------------
 
 %prep
-%autosetup -n %{name}-%{version} -p1
+%autosetup -n %{name}-git-%{commit0}
 
 sed -i 's/-DGTK_DISABLE_DEPRECATED//g' configure.ac
 
@@ -110,7 +110,8 @@ find $RPM_BUILD_ROOT%{_libdir} -type f -a -name \*.la -exec rm {} \;
 %postun -p /sbin/ldconfig
 
 %files -f %{name}.lang
-%doc COPYING README TODO
+%license COPYING
+%doc README TODO
 %{_libdir}/%{name}*.so.*
 %dir %{_libdir}/%{name}
 %{_libdir}/%{name}/lqt_*.so
@@ -138,6 +139,10 @@ find $RPM_BUILD_ROOT%{_libdir} -type f -a -name \*.la -exec rm {} \;
 # --------------------------------------------------------------------
 
 %changelog
+
+* Mon Jan 22 2018 Unitedrpms Project <unitedrpms AT protonmail DOT com> 1.2.4-29.git4d45177  
+- Changed to git repository 
+- Updated to current commit
 
 * Sat Sep 30 2017 Unitedrpms Project <unitedrpms AT protonmail DOT com> 1.2.4-28  
 - Automatic Mass Rebuild
