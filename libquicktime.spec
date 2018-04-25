@@ -1,17 +1,17 @@
 # See current commit here https://sourceforge.net/p/libquicktime/git/ci/master/tree/
-%global commit0 4d451774b89fbdd2f53204f92b71837af7b06761
+%global commit0 666c35cd0351ebcf7ee968c8014f2373f6ff423a
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global gver .git%{shortcommit0}
 
 Summary: 	Library for reading and writing Quicktime files
 Name: 		libquicktime
 Version:	1.2.4
-Release:	29%{?gver}%{?dist}
+Release:	30%{?gver}%{?dist}
 License:	LGPLv2+
 Group: 		System Environment/Libraries
 URL: 		http://libquicktime.sf.net
-Source0:	https://sourceforge.net/code-snapshots/git/l/li/libquicktime/git.git/libquicktime-git-%{commit0}.zip#/%{name}-%{shortcommit0}.tar.gz
-Source1:        COPYING
+Source:        	COPYING
+Source1:	libquicktime-snapshot
 
 BuildRequires:  autoconf
 BuildRequires:  automake
@@ -27,7 +27,7 @@ BuildRequires:	libavc1394-devel libraw1394-devel >= 0.9.0-12
 BuildRequires:	gtk2-devel >= 2.4.0
 BuildRequires:  schroedinger-devel
 BuildRequires:  gettext-devel
-BuildRequires:	cvs
+BuildRequires:	git
 %{?_with_faac:BuildRequires: faac-devel}
 
 %package utils
@@ -66,7 +66,13 @@ enhancements. This package contains development files for %{name}.
 # --------------------------------------------------------------------
 
 %prep
-%autosetup -n %{name}-git-%{commit0}
+
+# Our trick; the tarball doesn't download completely the source code; kodi needs some data from .git
+# the script makes it for us.
+
+%{S:1} -c %{commit0}
+
+%setup -T -D -n %{name}-%{shortcommit0}
 
 sed -i 's/-DGTK_DISABLE_DEPRECATED//g' configure.ac
 
@@ -139,6 +145,10 @@ find $RPM_BUILD_ROOT%{_libdir} -type f -a -name \*.la -exec rm {} \;
 # --------------------------------------------------------------------
 
 %changelog
+
+* Mon Apr 23 2018 Unitedrpms Project <unitedrpms AT protonmail DOT com> 1.2.4-30.git666c35c 
+- Updated to current commit
+- Snapshot fix 
 
 * Mon Jan 22 2018 Unitedrpms Project <unitedrpms AT protonmail DOT com> 1.2.4-29.git4d45177  
 - Changed to git repository 
