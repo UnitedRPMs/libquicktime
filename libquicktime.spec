@@ -1,12 +1,12 @@
 # See current commit here https://sourceforge.net/p/libquicktime/git/ci/master/tree/
-%global commit0 666c35cd0351ebcf7ee968c8014f2373f6ff423a
+%global commit0 fff99cdd4126f379ae538c4d3b09265242512384/
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global gver .git%{shortcommit0}
 
 Summary: 	Library for reading and writing Quicktime files
 Name: 		libquicktime
 Version:	1.2.4
-Release:	32%{?gver}%{?dist}
+Release:	33%{?gver}%{?dist}
 License:	LGPLv2+
 Group: 		System Environment/Libraries
 URL: 		http://libquicktime.sf.net
@@ -20,7 +20,7 @@ BuildRequires:  doxygen
 BuildRequires:	libdv-devel
 BuildRequires:	libpng-devel libjpeg-devel libGLU-devel
 BuildRequires:	libvorbis-devel 
-BuildRequires:	ffmpeg-devel >= 4.0
+BuildRequires:	ffmpeg-devel >= 4.1
 BuildRequires:	schroedinger-devel
 BuildRequires:	lame-devel alsa-lib-devel libXt-devel libXaw-devel libXv-devel
 BuildRequires:	libdv-devel >= 0.102-4 x264-devel faad2-devel
@@ -146,6 +146,10 @@ find $RPM_BUILD_ROOT%{_libdir} -type f -a -name \*.la -exec rm {} \;
 # --------------------------------------------------------------------
 
 %changelog
+
+* Thu Dec 06 2018 Unitedrpms Project <unitedrpms AT protonmail DOT com> 1.2.4-33.gitfff99cd  
+- Updated to current commit
+- Rebuilt for ffmpeg
 
 * Fri Oct 05 2018 Unitedrpms Project <unitedrpms AT protonmail DOT com> 1.2.4-32.git666c35c  
 - Automatic Mass Rebuild
