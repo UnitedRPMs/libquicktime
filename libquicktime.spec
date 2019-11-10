@@ -3,14 +3,14 @@
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global gver .git%{shortcommit0}
 
-Summary: 	Library for reading and writing Quicktime files
-Name: 		libquicktime
+Summary:	Library for reading and writing Quicktime files
+Name:		libquicktime
 Version:	1.2.4
-Release:	34%{?gver}%{?dist}
+Release:	35%{?gver}%{?dist}
 License:	LGPLv2+
-Group: 		System Environment/Libraries
-URL: 		http://libquicktime.sf.net
-Source:        	COPYING
+Group:		System Environment/Libraries
+URL:		http://libquicktime.sf.net
+Source:	COPYING
 Source1:	libquicktime-snapshot
 
 BuildRequires:  autoconf
@@ -18,13 +18,21 @@ BuildRequires:  automake
 BuildRequires:  libtool
 BuildRequires:  doxygen
 BuildRequires:	libdv-devel
-BuildRequires:	libpng-devel libjpeg-devel libGLU-devel
+BuildRequires:	libpng-devel 
+BuildRequires:	libjpeg-devel 
+BuildRequires:	libGLU-devel
 BuildRequires:	libvorbis-devel 
 BuildRequires:	ffmpeg-devel >= 4.1
 BuildRequires:	schroedinger-devel
-BuildRequires:	lame-devel alsa-lib-devel libXt-devel libXaw-devel libXv-devel
-BuildRequires:	libdv-devel >= 0.102-4 x264-devel faad2-devel
-BuildRequires:	libavc1394-devel libraw1394-devel >= 0.9.0-12
+BuildRequires:	lame-devel alsa-lib-devel 
+BuildRequires:	libXt-devel 
+BuildRequires:	libXaw-devel 
+BuildRequires:	libXv-devel
+BuildRequires:	libdv-devel >= 0.102-4 
+BuildRequires:	x264-devel >= 0.157
+BuildRequires:	faad2-devel >= 2.9.1
+BuildRequires:	libavc1394-devel 
+BuildRequires:	libraw1394-devel >= 0.9.0-12
 BuildRequires:	gtk2-devel >= 2.4.0
 BuildRequires:  schroedinger-devel
 BuildRequires:  gettext-devel
@@ -146,6 +154,9 @@ find $RPM_BUILD_ROOT%{_libdir} -type f -a -name \*.la -exec rm {} \;
 # --------------------------------------------------------------------
 
 %changelog
+
+* Fri Nov 08 2019 Unitedrpms Project <unitedrpms AT protonmail DOT com> 1.2.4-35.gitfff99cd  
+- Rebuilt for faad2
 
 * Fri Mar 22 2019 Unitedrpms Project <unitedrpms AT protonmail DOT com> 1.2.4-34.gitfff99cd  
 - Rebuilt for x264
