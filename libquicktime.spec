@@ -6,7 +6,7 @@
 Summary:	Library for reading and writing Quicktime files
 Name:		libquicktime
 Version:	1.2.4
-Release:	36%{?gver}%{?dist}
+Release:	37%{?gver}%{?dist}
 License:	LGPLv2+
 Group:		System Environment/Libraries
 URL:		http://libquicktime.sf.net
@@ -29,7 +29,7 @@ BuildRequires:	libXt-devel
 BuildRequires:	libXaw-devel 
 BuildRequires:	libXv-devel
 BuildRequires:	libdv-devel >= 0.102-4 
-BuildRequires:	x264-devel >= 0.157
+BuildRequires:	x264-devel >= 0.159
 BuildRequires:	faad2-devel >= 2.9.1
 BuildRequires:	libavc1394-devel 
 BuildRequires:	libraw1394-devel >= 0.9.0-12
@@ -154,6 +154,9 @@ find $RPM_BUILD_ROOT%{_libdir} -type f -a -name \*.la -exec rm {} \;
 # --------------------------------------------------------------------
 
 %changelog
+
+* Sat Jul 04 2020 Unitedrpms Project <unitedrpms AT protonmail DOT com> 1.2.4-37.gitfff99cd  
+- Rebuilt for x264
 
 * Tue Jun 23 2020 Unitedrpms Project <unitedrpms AT protonmail DOT com> 1.2.4-36.gitfff99cd  
 - Rebuilt for ffmpeg
