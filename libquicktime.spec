@@ -29,7 +29,7 @@ BuildRequires:	libXt-devel
 BuildRequires:	libXaw-devel 
 BuildRequires:	libXv-devel
 BuildRequires:	libdv-devel >= 0.102-4 
-BuildRequires:	x264-devel >= 0.159
+BuildRequires:	x264-devel >= 1:0.159
 BuildRequires:	faad2-devel >= 2.9.1
 BuildRequires:	libavc1394-devel 
 BuildRequires:	libraw1394-devel >= 0.9.0-12
