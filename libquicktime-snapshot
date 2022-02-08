@@ -33,7 +33,7 @@ name=libquicktime
 
 rm -rf ${name}-${shortcommit}/
 rm -f ${name}-${shortcommit}.tar.gz
-git clone --depth 1 https://git.code.sf.net/p/libquicktime/git ${name}-${shortcommit}
+git clone --depth 1 git://git.code.sf.net/p/libquicktime/git ${name}-${shortcommit}
 pushd ${name}-${shortcommit}
 git checkout --force "${commit}" 
 echo "You are in Commit: $( git rev-parse HEAD )"
